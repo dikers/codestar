@@ -4,6 +4,11 @@ import com.amazonaws.serverless.proxy.internal.testutils.MockLambdaContext;
 
 import com.aws.codestar.projecttemplates.GatewayResponse;
 
+import com.aws.codestar.projecttemplates.constant.AppConstant;
+import com.aws.codestar.projecttemplates.db.DbHelper;
+import com.aws.codestar.projecttemplates.enums.ReturnMessageEnum;
+import com.aws.codestar.projecttemplates.vo.RequestVo;
+import com.aws.codestar.projecttemplates.vo.ResponseVo;
 import org.json.JSONObject;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -25,6 +30,7 @@ public class HelloWorldHandlerTest {
     // A mock class for com.amazonaws.services.lambda.runtime.Context
     private final MockLambdaContext mockLambdaContext = new MockLambdaContext();
     private final Object input = new Object();
+
 
     /**
      * Initializing variables before we run the tests.
@@ -52,12 +58,15 @@ public class HelloWorldHandlerTest {
     @Test
     @DisplayName("Basic test for request handler")
     void testHandleRequest() {
-        GatewayResponse response = (GatewayResponse) new HelloWorldHandler().handleRequest(input, mockLambdaContext);
+
+        RequestVo requestVo = new RequestVo();
+        requestVo.setAddFlag( false );
+        requestVo.setSearchWord( "鞋" );
+
+        ResponseVo response = (ResponseVo) new HelloWorldHandler().handleRequest(requestVo, mockLambdaContext);
 
         // Verify the response obtained matches the values we expect.
-        JSONObject jsonObjectFromResponse = new JSONObject(response.getBody());
-        assertEquals(EXPECTED_RESPONSE_VALUE, jsonObjectFromResponse.get("Output"));
-        assertEquals(EXPECTED_CONTENT_TYPE, response.getHeaders().get("Content-Type"));
-        assertEquals(EXPECTED_STATUS_CODE_SUCCESS, response.getStatusCode());
+        assertEquals(ReturnMessageEnum.SUCCESS.getName(), response.getMessage());
+        assertEquals( ReturnMessageEnum.SUCCESS.getCode(), response.getStatus().intValue());
     }
 }
