@@ -4,17 +4,13 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 
-import com.aws.codestar.projecttemplates.GatewayResponse;
 import com.aws.codestar.projecttemplates.constant.AppConstant;
 import com.aws.codestar.projecttemplates.db.ProductDao;
 import com.aws.codestar.projecttemplates.enums.ReturnMessageEnum;
 import com.aws.codestar.projecttemplates.vo.RequestVo;
 import com.aws.codestar.projecttemplates.vo.ResponseVo;
-import org.json.JSONObject;
 
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Handler for requests to Lambda function.

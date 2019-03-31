@@ -1,8 +1,6 @@
 package com.aws.codestar.projecttemplates.db;
 
 import com.aws.codestar.projecttemplates.constant.AppConstant;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,7 +13,6 @@ import java.sql.DriverManager;
  */
 public class DbHelper {
 
-    static final Logger logger = LogManager.getLogger(DbHelper.class);
 
 
 
@@ -47,13 +44,13 @@ public class DbHelper {
         try {
             Class.forName(DRIVER);
         } catch (ClassNotFoundException e) {
-            logger.error("load driver failed.", e);
+            e.printStackTrace();
         }
         try {
             connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
-            logger.info("get connection success.");
+
         } catch (Exception e) {
-            logger.error("get connection failed.", e);
+            e.printStackTrace();
         }
     }
 

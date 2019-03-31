@@ -2,14 +2,6 @@ package com.aws.codestar.projecttemplates.handler;
 
 import com.amazonaws.serverless.proxy.internal.testutils.MockLambdaContext;
 
-import com.aws.codestar.projecttemplates.GatewayResponse;
-
-import com.aws.codestar.projecttemplates.constant.AppConstant;
-import com.aws.codestar.projecttemplates.db.DbHelper;
-import com.aws.codestar.projecttemplates.enums.ReturnMessageEnum;
-import com.aws.codestar.projecttemplates.vo.RequestVo;
-import com.aws.codestar.projecttemplates.vo.ResponseVo;
-import org.json.JSONObject;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
