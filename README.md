@@ -4,6 +4,10 @@
 这是一个AWS 无服务器架构的Demo项目，帮助开发者用Lambda 和API Gateway
 快速的自动化构建项目。
 
+[项目演示地址](http://dikers.de)
+
+![image](https://github.com/dikers/serverless/blob/master/doc/picture/8.jpg?raw=true)
+
 
 项目架构文档请参考[AWS Serverless服务架构 Demo ](https://github.com/dikers/serverless)
 ------------------
